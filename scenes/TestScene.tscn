@@ -1,0 +1,48 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://scenes/Cube.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/player_label.gd" type="Script" id=3]
+[ext_resource path="res://scenes/display_score.gd" type="Script" id=4]
+[ext_resource path="res://scenes/manage_game.gd" type="Script" id=5]
+[ext_resource path="res://assets/font/arcade_font.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://assets/table.png" type="Texture" id=7]
+
+[sub_resource type="DynamicFont" id=2]
+size = 50
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=1]
+size = 50
+font_data = ExtResource( 6 )
+
+[node name="Root" type="Node2D"]
+script = ExtResource( 5 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_right = 1024.0
+margin_bottom = 597.0
+texture = ExtResource( 7 )
+expand = true
+
+[node name="Cube" parent="." instance=ExtResource( 2 )]
+position = Vector2( 477, 304 )
+scale = Vector2( 10, 10 )
+
+[node name="current_score" type="Label" parent="."]
+margin_left = 300.0
+margin_top = 467.0
+margin_right = 624.0
+margin_bottom = 592.0
+custom_fonts/font = SubResource( 2 )
+script = ExtResource( 4 )
+
+[node name="current_player" type="Label" parent="."]
+margin_left = 319.0
+margin_top = 136.0
+margin_right = 616.0
+margin_bottom = 198.0
+custom_fonts/font = SubResource( 1 )
+script = ExtResource( 3 )
+
+[connection signal="new_turn" from="." to="Cube" method="_on_Root_new_turn"]
+[connection signal="dice_rolled" from="Cube" to="." method="_on_AnimatedSprite_dice_rolled"]
