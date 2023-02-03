@@ -24,6 +24,11 @@ config/name="piggy"
 run/main_scene="res://scenes/MainScene.tscn"
 config/icon="res://assets/piggy.png"
 
+[autoload]
+
+Global="*res://scenes/Global.tscn"
+GlobalVars="*res://scenes/global_vars.gd"
+
 [display]
 
 window/stretch/mode="viewport"

@@ -12,7 +12,7 @@ onready var current_player_index = 0
 onready var current_player = null
 export(int) onready var current_score = 0
 export(int) onready var winner_index = null
-export(int) onready var players_amount = 4
+export(int) onready var players_amount = 1
 export(int) onready var player_y_position = 30
 
 # FIGURE OUT HOW TO GET FROM NODE
@@ -22,7 +22,7 @@ export(int) onready var player_y_size = 140
 export(int) onready var margin_from_screen = 30
 # export(int) onready var base_players_margin = 500
 var player_scene = preload("res://scenes/Player.tscn")
-
+var WINNER_SCENE = "res://scenes/WinnerScene.tscn"
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -113,10 +113,13 @@ func end_turn():
 
 func end_game(winner_index):
 	print("PLAYER {winner_index} WINS!!1".format({"winner_index": winner_index+1}))
+	GlobalVars.WINNER_INDEX = winner_index
+	get_tree().change_scene(WINNER_SCENE)
+	
 
 # func _on_player_one_victory():
-	print("PLAYER 1 WINS")
+#	print("PLAYER 1 WINS")
 
 
 # func _on_player_two_victory():
-	print("PLAYER 2 WINS")
+#	print("PLAYER 2 WINS")
