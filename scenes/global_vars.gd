@@ -1,7 +1,7 @@
 extends Node
 
 export(int) onready var WINNER_INDEX = 0
-export(int) var TARGET_SCORE = 10
+export(int) var TARGET_SCORE = 20
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"

@@ -13,7 +13,6 @@ func _ready():
 	print(str(GlobalVars.WINNER_INDEX))
 	winner_label.text = "CONGRATULATIONS!!!!\nTHE WINNDER IS PLAYER {winner_index}".format({"winner_index": winner_index+1})
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _input(event):
+	if event is InputEventKey and event.pressed:
+		get_tree().quit()

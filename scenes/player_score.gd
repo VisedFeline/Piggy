@@ -40,11 +40,15 @@ func _set_meter():
 func _update_meter_sprite():
 	""" Update the sprite of the piggy meter """
 	var thresholds = self.fill_thresholds.keys()
+	thresholds.sort()
 	thresholds.invert()
-	print("tjres: " + str(thresholds))
+	print("thres: " + str(thresholds))
+	print("mama: " + str(self.fill_thresholds))
 	for threshold in thresholds:
 		if self.score > threshold:
-			self.fill_meter.frame = threshold
+			print("sc " + str(self.score))
+			print("threshold " + str(threshold))
+			self.fill_meter.frame = self.fill_thresholds[threshold]
 			break
 
 func update_score(points: int):
