@@ -6,22 +6,52 @@ onready var score = 0
 
 export(int) var player_index = 1
 export(bool) var is_current_player = false
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+onready var fill_thresholds = {}
 
+onready var fill_meter = self.get_node("fill_meter")
+onready var fill_meter_animation = "piggy_fill"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	self._set_meter()
+	self.update_score(self.score)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	self.text = "PLAYER {player_index}     {score}".format({"player_index": player_index, "score": score})
 	
 	if self.is_current_player:
 		get_node("player_index").visible = true
 	else:
 		get_node("player_index").visible = false
+		
+
+func _set_meter():
+	""" Set the threshold to frame dictionary """
+	var sprites_amount = self.fill_meter.frames.get_frame_count(fill_meter_animation)
+	var threshold_increment = GlobalVars.TARGET_SCORE / sprites_amount
+	var current_threshold = 0
+	
+	for index in range(sprites_amount):
+		current_threshold = index * threshold_increment
+		self.fill_thresholds[current_threshold] = index
+		
+
+func _update_meter_sprite():
+	""" Update the sprite of the piggy meter """
+	var thresholds = self.fill_thresholds.keys()
+	thresholds.invert()
+	print("tjres: " + str(thresholds))
+	for threshold in thresholds:
+		if self.score > threshold:
+			self.fill_meter.frame = threshold
+			break
+
+func update_score(points: int):
+	""" Add points to score and handle score related events S"""
+	self.score += points
+	self.text = "PLAYER {player_index}     {score}".format({"player_index": player_index, "score": score})
+	self._update_meter_sprite()
+	
+	
 	

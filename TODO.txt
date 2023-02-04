@@ -1,8 +1,5 @@
 TODO:
-[] Add Game Over screen
-[] Add indicative player score sprites (a pig growing as the player's score grows)
 [] Add help screen or UI instructions sprite
-[] Upload game files to github
 [] Polish existing sprites
 [] Edit dice to roll rather than spin
 [] Add game modes (classical, no visible score, first to reach 3 ones)
@@ -12,3 +9,5 @@ TODO:
 [] Add sounds
 [] Add zoom in on suspence
 [] Add throw strength
+[] Optional: add support for multiple cubes
+[] Optional: add CPU

@@ -2,8 +2,6 @@ extends Node2D
 
 signal new_turn()
 
-export(int) var target_score = 10
-
 onready var cube = self.get_node("Cube")
 #onready var player_one = self.get_node("player_one")
 #onready var player_two = self.get_node("player_two")
@@ -97,10 +95,10 @@ func _on_AnimatedSprite_dice_rolled(roll_score):
 func end_turn():
 	""" Finish a player's turn by adding points, checking for winner and moving the turn to next player"""
 	print("added ", current_score, " points to player", current_player_index)
-	current_player.score += current_score
+	current_player.update_score(current_score)
 	current_score = 0
 	
-	if current_player.score >= target_score:
+	if current_player.score >= GlobalVars.TARGET_SCORE:
 		winner_index = current_player_index
 		end_game(winner_index)
 	

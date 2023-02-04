@@ -1,12 +1,33 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://scenes/player_score.gd" type="Script" id=1]
 [ext_resource path="res://assets/player_index.png" type="Texture" id=2]
 [ext_resource path="res://assets/font/arcade_font.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://assets/actual_assets/player_piggy.png" type="Texture" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 size = 50
 font_data = ExtResource( 3 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 4 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 4 )
+region = Rect2( 16, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 4 )
+region = Rect2( 32, 0, 16, 16 )
+
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [ SubResource( 2 ), SubResource( 3 ), SubResource( 4 ) ],
+"loop": true,
+"name": "piggy_fill",
+"speed": 5.0
+} ]
 
 [node name="player" type="Label"]
 margin_right = 40.0
@@ -18,3 +39,9 @@ script = ExtResource( 1 )
 position = Vector2( 24, 71 )
 scale = Vector2( 5.875, 8.25 )
 texture = ExtResource( 2 )
+
+[node name="fill_meter" type="AnimatedSprite" parent="."]
+position = Vector2( 105.5, 72.5 )
+scale = Vector2( 5.0625, 4.4375 )
+frames = SubResource( 5 )
+animation = "piggy_fill"
