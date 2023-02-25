@@ -42,7 +42,11 @@ func _process(delta):
 
 
 	if Input.is_action_just_pressed("end_turn"):
-		end_turn()
+		if not self.cube.is_rolling():
+			print("shiii")
+			end_turn()
+		else:
+			print("iiiish")
 		#cube.timer.start()
 
 

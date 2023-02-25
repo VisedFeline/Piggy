@@ -1,7 +1,6 @@
 TODO:
 [] Add help screen or UI instructions sprite
 [] Polish existing sprites
-[] Fix ending turn while dice rolling
 [] Add game modes (classical, no visible score, first to reach 3 ones)
 [] Add settings (players number, target score, etc...)
 [] Add roll animations

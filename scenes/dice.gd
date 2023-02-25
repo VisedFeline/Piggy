@@ -78,3 +78,7 @@ func stop_roll():
 	self.velocity = Vector2(0,0)
 	self.animation_node.stop_roll_animation()
 	emit_signal("score_revealed", self.animation_node.frame+1)
+
+func is_rolling():
+	""" Return whether or not the dice is rolling, determined by velocity """
+	return self.velocity.length() != 0
