@@ -60,4 +60,4 @@ script = ExtResource( 5 )
 [connection signal="new_turn" from="." to="Cube" method="_on_Root_new_turn"]
 [connection signal="victory" from="player_one" to="." method="_on_player_one_victory"]
 [connection signal="victory" from="player_two" to="." method="_on_player_two_victory"]
-[connection signal="dice_rolled" from="Cube" to="." method="_on_AnimatedSprite_dice_rolled"]
+[connection signal="score_revealed" from="Cube" to="." method="_on_Cube_score_revealed"]

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/win_banjo.mp3-0321c6113826fd373f842c04257c3b08.mp3str"
+
+[deps]
+
+source_file="res://assets/sound/win_banjo.mp3"
+dest_files=[ "res://.import/win_banjo.mp3-0321c6113826fd373f842c04257c3b08.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

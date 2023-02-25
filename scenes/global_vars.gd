@@ -2,6 +2,7 @@ extends Node
 
 export(int) onready var WINNER_INDEX = 0
 export(int) var TARGET_SCORE = 20
+export(Vector2) onready var SCREEN_SIZE = get_viewport().get_viewport().size
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"

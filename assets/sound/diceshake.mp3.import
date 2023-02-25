@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/diceshake.mp3-fb25e6133114e997a0a8f87e86f68ed6.mp3str"
+
+[deps]
+
+source_file="res://assets/sound/diceshake.mp3"
+dest_files=[ "res://.import/diceshake.mp3-fb25e6133114e997a0a8f87e86f68ed6.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/pig_squeak_victory.mp3-d4a94b34c673e43c42ea9f4d084b8021.mp3str"
+
+[deps]
+
+source_file="res://assets/sound/pig_squeak_victory.mp3"
+dest_files=[ "res://.import/pig_squeak_victory.mp3-d4a94b34c673e43c42ea9f4d084b8021.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

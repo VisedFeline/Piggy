@@ -38,17 +38,17 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if Input.is_action_just_pressed("roll_dice"):
-		cube.roll_dice()
+		cube.roll_die(1)
 
 
 	if Input.is_action_just_pressed("end_turn"):
 		end_turn()
-		cube.timer.start()
+		#cube.timer.start()
 
 
 func create_players(players_amount: int):
 	""" Create players_amount player objects """
-	var screen_width = get_viewport().get_viewport().size.x
+	var screen_width = GlobalVars.SCREEN_SIZE.x
 	var base_players_margin = screen_width - 2 * self.margin_from_screen
 	var current_x_position = self.margin_from_screen
 	var total_player_space = base_players_margin / self.players_amount
@@ -121,3 +121,14 @@ func end_game(winner_index):
 
 # func _on_player_two_victory():
 #	print("PLAYER 2 WINS")
+
+
+func _on_Cube_score_revealed(score):
+	if score == 1:
+		self.current_score = 0
+		end_turn()
+	else:
+		self.current_score += score
+		print("current score is ", current_score)
+	#print("added ", self.current_score, " points to player ", score)
+	#self.current_score += score

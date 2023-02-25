@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/big_applause.mp3-b3add7e0033862b215ccffde1162b03b.mp3str"
+
+[deps]
+
+source_file="res://assets/sound/big_applause.mp3"
+dest_files=[ "res://.import/big_applause.mp3-b3add7e0033862b215ccffde1162b03b.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
