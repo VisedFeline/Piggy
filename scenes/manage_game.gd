@@ -10,12 +10,14 @@ onready var current_player_index = 0
 onready var current_player = null
 export(int) onready var current_score = 0
 export(int) onready var winner_index = null
-export(int) onready var players_amount = 1
+export(int) onready var players_amount = 2
 export(int) onready var player_y_position = 30
 
 # FIGURE OUT HOW TO GET FROM NODE
 export(int) onready var player_x_size = 40
 export(int) onready var player_y_size = 140
+
+export(float) onready var roll_pressed_time = 0
 
 export(int) onready var margin_from_screen = 30
 # export(int) onready var base_players_margin = 500
@@ -37,18 +39,24 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if Input.is_action_just_pressed("roll_dice"):
-		cube.roll_die(1)
-
+	
+	if Input.is_action_pressed("roll_dice"):
+		self.current_player.strength += delta
+		
+	if Input.is_action_just_released("roll_dice"):
+		cube.roll_die(self.current_player.strength)
+		self.current_player.strength = 0
 
 	if Input.is_action_just_pressed("end_turn"):
 		if not self.cube.is_rolling():
-			print("shiii")
 			end_turn()
-		else:
-			print("iiiish")
+			
+	if Input.is_action_just_pressed("restart"):
+		restart_game()
 		#cube.timer.start()
 
+func hold_roll():
+	pass
 
 func create_players(players_amount: int):
 	""" Create players_amount player objects """
@@ -80,6 +88,7 @@ func set_player_indices():
 func set_first_player():
 	current_player = players[current_player_index]
 	self.players[0].is_current_player = true
+	current_player.strength = 0
 
 func sleep(seconds):
 	yield(get_tree().create_timer(seconds), "timeout")
@@ -136,3 +145,8 @@ func _on_Cube_score_revealed(score):
 		print("current score is ", current_score)
 	#print("added ", self.current_score, " points to player ", score)
 	#self.current_score += score
+
+func restart_game():
+	""" Restart the game """
+	get_tree().reload_current_scene()
+	

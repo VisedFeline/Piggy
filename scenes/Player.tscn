@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://scenes/player_score.gd" type="Script" id=1]
 [ext_resource path="res://assets/player_index.png" type="Texture" id=2]
 [ext_resource path="res://assets/font/arcade_font.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://assets/actual_assets/player_piggy.png" type="Texture" id=4]
+[ext_resource path="res://assets/actual_assets/strength_meter.png" type="Texture" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 size = 50
@@ -29,6 +30,42 @@ animations = [ {
 "speed": 5.0
 } ]
 
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 5 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 5 )
+region = Rect2( 16, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 5 )
+region = Rect2( 32, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 5 )
+region = Rect2( 48, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 5 )
+region = Rect2( 64, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=11]
+atlas = ExtResource( 5 )
+region = Rect2( 80, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=12]
+atlas = ExtResource( 5 )
+region = Rect2( 96, 0, 16, 16 )
+
+[sub_resource type="SpriteFrames" id=13]
+animations = [ {
+"frames": [ SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ) ],
+"loop": false,
+"name": "strength_meter",
+"speed": 5.0
+} ]
+
 [node name="player" type="Label"]
 margin_right = 40.0
 margin_bottom = 40.0
@@ -45,3 +82,9 @@ position = Vector2( 105.5, 72.5 )
 scale = Vector2( 5.0625, 4.4375 )
 frames = SubResource( 5 )
 animation = "piggy_fill"
+
+[node name="strength_meter" type="AnimatedSprite" parent="."]
+position = Vector2( 68.75, 143 )
+scale = Vector2( 8.53125, 4.3125 )
+frames = SubResource( 13 )
+animation = "strength_meter"

@@ -1,5 +1,6 @@
 TODO:
 [] Add help screen or UI instructions sprite
+[] Fix UI players size issue (figure out how to set player size)
 [] Polish existing sprites
 [] Add game modes (classical, no visible score, first to reach 3 ones)
 [] Add settings (players number, target score, etc...)
@@ -12,3 +13,4 @@ TODO:
 [] Optional: add support for multiple cubes
 [] Optional: add CPU opponents
 [] Optional: add more risk for bigger streak
+[] Fix low throw strength issue
