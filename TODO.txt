@@ -4,13 +4,13 @@ TODO:
 [] Polish existing sprites
 [] Add game modes (classical, no visible score, first to reach 3 ones)
 [] Add settings (players number, target score, etc...)
-[] Add roll animations
+[] Add roll animations - improve
 [] Add combo and streak lose sprites <----
 [] Add sounds <----
 [] Add zoom in on suspence
-[] Add throw strength
 [] Add restart in menu and game over
 [] Optional: add support for multiple cubes
 [] Optional: add CPU opponents
 [] Optional: add more risk for bigger streak
 [] Fix low throw strength issue
+[] Add risk moves (double dice or nothing or skip turn)

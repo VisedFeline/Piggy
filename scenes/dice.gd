@@ -1,6 +1,7 @@
 extends KinematicBody2D
 
 signal score_revealed
+signal start_rolling
 
 
 # Declare member variables here. Examples:
@@ -64,6 +65,7 @@ func initiate_roll(start_position: Vector2, start_rotation: float=0, strength: i
 	#self.rotate(deg2rad(start_rotation))
 	var roll_velocity = strength * self.VELOCITY_INCREMENT * start_rotation
 	self.velocity = Vector2(roll_velocity, roll_velocity)
+	emit_signal("start_rolling", self.velocity)
 	
 
 func roll_die(strength: int):
